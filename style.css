@@ -5,13 +5,15 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background: #fff;
-  min-height: 100vh;
-    display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 20px;
+      font-family: Arial, sans-serif;
+        background: #fff;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 20px;
+        flex-wrap: wrap;
+        align-content: space-around;
 }
 
 .container {
@@ -25,6 +27,80 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+
+
+
+
+section {
+  text-align: right;
+  padding: 60px 0;
+
+}
+
+.section-bg {
+  background-color: #fef8f5;
+}
+
+.section-title {
+  text-align: center;
+  padding-bottom: 30px;
+  font-family: "Almarai", sans-serif;
+  font-weight: 300;
+}
+
+.section-title h2 {
+  font-size: 24px;
+  padding-bottom: 0;
+  line-height: 1px;
+  margin-bottom: 15px;
+  color: #c2b7b1;
+  font-family: "Almarai", sans-serif;
+  font-weight: 300;
+
+}
+
+.section-title p {
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  position: relative;
+  font-size: 32px;
+  font-weight: 700;
+  color: #4e4039;
+}
+
+.section-title p::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: #eb5d1e;
+  bottom: 0;
+  left: calc(50% - 30px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .pixel-grid {
      display: ruby;
@@ -358,3 +434,129 @@ body {
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
+/*
+ CSS for the main interaction
+*/
+.tabset>input[type="radio"] {
+  position: absolute;
+  left: -200vw;
+}
+
+.tabset .tab-panel {
+  display: none;
+}
+
+.tabset>input:first-child:checked~.tab-panels>.tab-panel:first-child,
+.tabset>input:nth-child(3):checked~.tab-panels>.tab-panel:nth-child(2),
+.tabset>input:nth-child(5):checked~.tab-panels>.tab-panel:nth-child(3),
+.tabset>input:nth-child(7):checked~.tab-panels>.tab-panel:nth-child(4),
+.tabset>input:nth-child(9):checked~.tab-panels>.tab-panel:nth-child(5),
+.tabset>input:nth-child(11):checked~.tab-panels>.tab-panel:nth-child(6) {
+  display: block;
+}
+
+/*
+ Styling
+*/
+body {
+  font: 16px/1.5em "Overpass", "Open Sans", Helvetica, sans-serif;
+  color: #333;
+  font-weight: 300;
+}
+
+.tabset>label {
+  position: relative;
+  display: inline-block;
+  padding: 15px 15px 25px;
+  border: 1px solid transparent;
+  border-bottom: 0;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.tabset>label::after {
+  content: "";
+  position: absolute;
+  left: 15px;
+  bottom: 10px;
+  width: 22px;
+  height: 4px;
+  background: #8d8d8d;
+}
+
+input:focus-visible+label {
+  outline: 2px solid rgba(0, 102, 204, 1);
+  border-radius: 3px;
+}
+
+.tabset>label:hover,
+.tabset>input:focus+label,
+.tabset>input:checked+label {
+  color: #06c;
+}
+
+.tabset>label:hover::after,
+.tabset>input:focus+label::after,
+.tabset>input:checked+label::after {
+  background: #06c;
+}
+
+.tabset>input:checked+label {
+  border-color: #ccc;
+  border-bottom: 1px solid #fff;
+  margin-bottom: -1px;
+}
+
+.tab-panel {
+  padding: 30px 0;
+  border-top: 1px solid #ccc;
+}
+
+/*
+ Demo purposes only
+*/
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  padding-top: 150px;
+}
+
+.tabset {
+  max-width: 65em;
+}
+
+
+
+
+
+.tab-panels .tab-panel {
+  display: none;
+  /* إخفاء جميع الأقسام افتراضياً */
+}
+
+/* قاعدة إظهار التابة المحددة */
+#tab1:checked~.tab-panels>#marzen,
+#tab2:checked~.tab-panels>#rauchbier,
+#tab3:checked~.tab-panels>#dunkles,
+#tab4:checked~.tab-panels>#Halls
+
+{
+  display: block;
+}
+
+/* ✨ أضف هذه القاعدة لزر إظهار الكل */
+#tab-all:checked~.tab-panels>.tab-panel {
+  display: block;
+  /* عند تحديد #tab-all، أظهر كل العناصر التي تحمل فئة .tab-panel */
+}
+
+/* يمكنك إضافة بعض الفواصل المرئية بين البلوكات الظاهرة */
+#tab-all:checked~.tab-panels>.tab-panel {
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  padding: 15px;
+}
